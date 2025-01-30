@@ -55,6 +55,11 @@ public class AutonomousDistance extends SequentialCommandGroup {
     drawSquare((int)side, drivetrain);
   }
 
+  private void drawCircleFromArea(double area, Drivetrain drivetrain){
+    double side = Math.pow((area/Math.PI),0.5);
+    drawCircle((int)side, drivetrain);
+  }
+
   private void whatever(int var, Drivetrain drivetrain){
     for (int i = 0; i < 1000; i++){
       addCommands(
@@ -72,7 +77,7 @@ public class AutonomousDistance extends SequentialCommandGroup {
      * @param drivetrain The drivetrain subsystem on which this command will run
      */
     public AutonomousDistance(Drivetrain drivetrain) {
-      whatever(100, drivetrain);
+      whatever(50, drivetrain);;
     }
   }
   
