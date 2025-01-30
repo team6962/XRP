@@ -32,6 +32,7 @@ public class AutonomousDistance extends SequentialCommandGroup {
         new TurnDegrees(1, degreesToTurnBy, drivetrain));
     }
   }
+  
   private void drawTriangle(int sideLength, Drivetrain drivetrain){
     int degreesToTurnBy = 120;
     for (int i = 0; i < 3; i++){
@@ -40,6 +41,15 @@ public class AutonomousDistance extends SequentialCommandGroup {
         new TurnDegrees(1, degreesToTurnBy, drivetrain));
     }
   }
+
+  private void drawTriangleFromArea(double area, Drivetrain drivetrain){
+    double root3 = Math.pow(3,0.5);
+    double thing = area*(4/root3);
+    double result = Math.pow(thing, 0.5);
+    // do some math
+    drawTriangle((int)result, drivetrain);
+  }
+
   private void whatever(int var, Drivetrain drivetrain){
     for (int i = 0; i < 1000; i++){
       addCommands(
@@ -48,6 +58,7 @@ public class AutonomousDistance extends SequentialCommandGroup {
     }
   }
   
+
   
     /**
      * Creates a new Autonomous Drive based on distance. This will drive out for a specified distance,
@@ -56,7 +67,7 @@ public class AutonomousDistance extends SequentialCommandGroup {
      * @param drivetrain The drivetrain subsystem on which this command will run
      */
     public AutonomousDistance(Drivetrain drivetrain) {
-      drawCircle(100, drivetrain);
+      drawTriangleFromArea(2000, drivetrain);
     }
   }
   
