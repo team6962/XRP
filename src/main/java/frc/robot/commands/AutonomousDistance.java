@@ -16,12 +16,12 @@ public class AutonomousDistance extends SequentialCommandGroup {
    */
   private void drawCircle(int radius, Drivetrain drivetrain){
     double length = (Math.PI/180)*radius;
-    int degreesToTurnBy = 1;
+    int degreesToTurnBy = 5;
   
-    for(int i = 0; i < 360; i++){
+    for(int i = 0; i < (360/5); i++){
       addCommands(
-        new DriveDistance(0.5, length, drivetrain),
-        new TurnDegrees(0.5, degreesToTurnBy, drivetrain));
+        new DriveDistance(1, length, drivetrain),
+        new TurnDegrees(1, degreesToTurnBy, drivetrain));
     }
   }
   private void drawSquare(int sideLength, Drivetrain drivetrain){
