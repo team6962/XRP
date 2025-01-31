@@ -68,8 +68,14 @@ public class AutonomousDistance extends SequentialCommandGroup {
     }
   }
   
+  private void draw_hexagon( int side_length, Drivetrain drivetrain ) {
+    for (int i = 0; i < 6; i++){
+      addCommands(
+        new DriveDistance(1, side_length, drivetrain),
+        new TurnDegrees(1, 60, drivetrain));
+    }
 
-  
+  }
     /**
      * Creates a new Autonomous Drive based on distance. This will drive out for a specified distance,
      * turn around and drive back.
@@ -77,7 +83,7 @@ public class AutonomousDistance extends SequentialCommandGroup {
      * @param drivetrain The drivetrain subsystem on which this command will run
      */
     public AutonomousDistance(Drivetrain drivetrain) {
-      whatever(50, drivetrain);;
+      draw_hexagon(10, drivetrain);
     }
   }
   
