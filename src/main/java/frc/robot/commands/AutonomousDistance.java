@@ -76,6 +76,13 @@ public class AutonomousDistance extends SequentialCommandGroup {
     }
 
   }
+
+  private void draw_hexagon_from_area(double area, Drivetrain drivetrain){
+    double side = (Math.pow(2*area, 0.5))/(3*(Math.sqrt(3)));
+    draw_hexagon((int)side, drivetrain);
+  }
+
+
     /**
      * Creates a new Autonomous Drive based on distance. This will drive out for a specified distance,
      * turn around and drive back.
@@ -83,7 +90,7 @@ public class AutonomousDistance extends SequentialCommandGroup {
      * @param drivetrain The drivetrain subsystem on which this command will run
      */
     public AutonomousDistance(Drivetrain drivetrain) {
-      draw_hexagon(10, drivetrain);
+      draw_hexagon_from_area(100000, drivetrain);
     }
   }
   
