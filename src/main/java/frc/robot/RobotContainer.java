@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutonomousDistance;
 import frc.robot.commands.AutonomousTime;
+import frc.robot.commands.TurnDegrees;
+import frc.robot.commands.DriveDistance;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -20,6 +22,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -71,6 +74,13 @@ public class RobotContainer {
     joystickBButton
         .onTrue(new InstantCommand(() -> m_arm.setAngle(90.0), m_arm))
         .onFalse(new InstantCommand(() -> m_arm.setAngle(0.0), m_arm));
+
+    JoystickButton joystick180Button = new JoystickButton(m_controller, 3);
+    joystick180Button.onTrue(new TurnDegrees(1, 180, m_drivetrain));
+    // joystick180Button.onTrue(new InstantCommand(() -> System.out.println("button 3 pressed")));
+    
+    JoystickButton joystick100inButton = new JoystickButton(m_controller, 4);
+    joystick100inButton.onTrue(new DriveDistance(1, 250, m_drivetrain));
 
     // Setup SmartDashboard options
     m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
