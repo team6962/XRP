@@ -81,8 +81,8 @@ public class AutonomousDistance extends SequentialCommandGroup {
     double side = (Math.pow(2*area, 0.5))/(3*(Math.sqrt(3)));
     draw_hexagon((int)side, drivetrain);
   }
-  private void budget_reefscape(Drivetrain drivetrain){
-    new DriveDistance(1, 55, drivetrain);
+  private void budget_reefscape(int whatever,Drivetrain drivetrain){
+    new DriveDistance(1, whatever, drivetrain);
 
   }
 
@@ -94,7 +94,7 @@ public class AutonomousDistance extends SequentialCommandGroup {
      * @param drivetrain The drivetrain subsystem on which this command will run
      */
     public AutonomousDistance(Drivetrain drivetrain) {
-      budget_reefscape(drivetrain);
+      budget_reefscape(55,drivetrain);
     }
   }
   
