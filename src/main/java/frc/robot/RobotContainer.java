@@ -77,10 +77,17 @@ public class RobotContainer {
 
     JoystickButton joystick180Button = new JoystickButton(m_controller, 3);
     joystick180Button.onTrue(new TurnDegrees(1, 180, m_drivetrain));
+
+    JoystickButton joystick90Button = new JoystickButton(m_controller, 5);
+    joystick90Button.onTrue(new TurnDegrees(1, 90, m_drivetrain));
+
+    JoystickButton joystick45Button = new JoystickButton(m_controller, 6);
+    joystick45Button.onTrue(new TurnDegrees(1, 45, m_drivetrain));
     //joystick180Button.onTrue(new InstantCommand(() -> System.out.println("button 3 pressed")));
     
-    JoystickButton joystick100inButton = new JoystickButton(m_controller, 4);
-    joystick100inButton.onTrue(new DriveDistance(1, 250, m_drivetrain));
+    JoystickButton joystickrandnuminButton = new JoystickButton(m_controller, 4);
+    joystickrandnuminButton.onTrue(new DriveDistance(1, 5, m_drivetrain));
+    
 
     // Setup SmartDashboard options
     m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
