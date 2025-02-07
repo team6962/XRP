@@ -81,9 +81,30 @@ public class AutonomousDistance extends SequentialCommandGroup {
     double side = (Math.pow(2*area, 0.5))/(3*(Math.sqrt(3)));
     draw_hexagon((int)side, drivetrain);
   }
-  private void budget_reefscape(int whatever,Drivetrain drivetrain){
-    new DriveDistance(1, whatever, drivetrain);
 
+  private void budget_reefscape(int whatever, Drivetrain drivetrain){
+    addCommands(
+    new DriveDistance(1, whatever, drivetrain)
+    );
+    
+  }
+
+  private void drawStarFromArea(double area, Drivetrain drivetrain){
+    double pentagonSideLength = side_length/ (2 * Math.cos(36));
+    double triangleOuterLength = (0.5 * pentagonSideLength) / Math.cos(36); // for a triangle side length, there are two triangle out lengths
+    double triangleInnerLength = side_length - (2 * triangleOuterLength);
+    double innerLargeTriangleArea = 0.5 * side_length * Math.tan(36)*(0.5* side_length); // the largest triangle within the star
+    double innerSmallTriangleArea = triangleOuterLength*Math.sin(72)*0.5*triangleInnerLength;
+    double TriangleArea = innerLargeTriangleArea+3*innerSmallTriangleArea;
+  }
+
+  private void draw_a_star(double side_length, Drivetrain drivetrain){
+  for (int i = 0; i < 5; i++){
+      addCommands(
+        new DriveDistance(1, side_length, drivetrain),
+        new TurnDegrees(1,144, drivetrain)
+      );
+    }
   }
 
 
@@ -94,7 +115,7 @@ public class AutonomousDistance extends SequentialCommandGroup {
      * @param drivetrain The drivetrain subsystem on which this command will run
      */
     public AutonomousDistance(Drivetrain drivetrain) {
-      budget_reefscape(55,drivetrain);
+      draw_a_star(10, drivetrain);
     }
   }
   
