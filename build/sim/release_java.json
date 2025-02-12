@@ -5,24 +5,24 @@
     "extensions": [
       {
         "name": "Sim GUI",
-        "libName": "/Users/charliekunz/Desktop/XRP/build/jni/release/libhalsim_gui.dylib",
+        "libName": "/Users/klsstudent/Documents/XRP/build/jni/release/libhalsim_gui.dylib",
         "defaultEnabled": true
       },
       {
         "name": "Sim XRP Client",
-        "libName": "/Users/charliekunz/Desktop/XRP/build/jni/release/libhalsim_xrp.dylib",
+        "libName": "/Users/klsstudent/Documents/XRP/build/jni/release/libhalsim_xrp.dylib",
         "defaultEnabled": true
       },
       {
         "name": "Use Real DriverStation",
-        "libName": "/Users/charliekunz/Desktop/XRP/build/jni/release/libhalsim_ds_socket.dylib",
+        "libName": "/Users/klsstudent/Documents/XRP/build/jni/release/libhalsim_ds_socket.dylib",
         "defaultEnabled": false
       }
     ],
     "environment": {
       "HALSIMXRP_HOST": "192.168.42.1"
     },
-    "libraryDir": "/Users/charliekunz/Desktop/XRP/build/jni/release",
+    "libraryDir": "/Users/klsstudent/Documents/XRP/build/jni/release",
     "mainClassName": "frc.robot.Main"
   }
 ]
