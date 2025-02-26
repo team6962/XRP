@@ -90,15 +90,8 @@ public class AutonomousDistance extends SequentialCommandGroup {
   }
 
   private void drawStarFromArea(double area, Drivetrain drivetrain){
-    double side_length = area;
-    double pentagonSideLength = side_length/ (2 * Math.cos(36));
-    double triangleOuterLength = (0.5 * pentagonSideLength) / Math.cos(36); // for a triangle side length, there are two triangle out lengths
-    double triangleInnerLength = side_length - (2 * triangleOuterLength);
-    double innerLargeTriangleArea = 0.5 * side_length * Math.tan(36)*(0.5* side_length); // the largest triangle within the star
-    double innerSmallTriangleArea = triangleOuterLength*Math.sin(72)*0.5*triangleInnerLength;
-    double TriangleArea = innerLargeTriangleArea+3*innerSmallTriangleArea;
-    double side = (Math.pow((3*area) , 0.5));
-    draw_a_star((int)side, drivetrain);
+    double side_length = Math.pow((3.413*area),0.5);
+    draw_a_star((int)side_length, drivetrain);
   }
 
   private void draw_a_star(double side_length, Drivetrain drivetrain){
